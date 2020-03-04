@@ -122,23 +122,13 @@ console.log(data);
 
 errFunc(){
 
- var num: number = Math.floor(Math.random() * 3) + 1  
+ var num: number = Math.floor(Math.random() * 1) + 1  
  global_num = num;
 console.log("In err function number = " + num)
  switch(num){
     case 1: {
       console.log("Deploying Fan error")
       this.fanError();       
-      break;
-    }
-    case 2: {
-      console.log("Deploying O2 error")
-      this.O2Error();
-      break;
-    }
-    case 3: {
-      console.log("Deploying Pressure error")
-      this.PresError();
       break;
     }
     default:
@@ -159,17 +149,6 @@ console.log("In resolve function number = " + err);
           console.log("Resolving Fan error");
           this.resolveFanError();
           break;
-      }
-      case 2:{
-          console.log("Resolving O2 Error");
-          this.resolveO2Error();
-          break;
-      }
-      case 3:{
-          console.log("Resolving Pressure Error");
-          this.resolvePresError();
-          break;
-      }
       default:{
           console.log("Resolve Error");
           break;
@@ -188,36 +167,11 @@ fanError(){this.http.patch(url + '/api/simulation/deployerror?fan_error=true', {
   });
 }
 
-O2Error(){this.http.patch(url + '/api/simulation/deployerror?O2_error=true', {
-})
-.subscribe(data => {
-console.log(data);
-});
-}
-PresError(){this.http.patch(url + '/api/simulation/deployerror?Pres_error=true', {
-})
-.subscribe(data => {
-console.log(data);
-});
-}
+
 //RESOLVES FAN ERROR
 //SETS FAN ERROR VALUE TO FALSE, FAN ERROR IS THEN RESOLVED
 //THE FAN SPEED BEGINS TO DECREASE. 
 resolveFanError(){this.http.patch(url + '/api/simulation/deployerror?fan_error=false', {
-})
-.subscribe(data => {
-console.log(data);
-});
-}
-
-resolvePresError(){this.http.patch(url + '/api/simulation/deployerror?Pres_error=false', {
-})
-.subscribe(data => {
-console.log(data);
-});
-}
-
-resolveO2Error(){this.http.patch(url + '/api/simulation/deployerror?O2_error=false', {
 })
 .subscribe(data => {
 console.log(data);
