@@ -168,7 +168,6 @@ fanError(){this.http.patch(url + '/api/simulation/deployerror?fan_error=true', {
   });
 }
 
-
 //RESOLVES FAN ERROR
 //SETS FAN ERROR VALUE TO FALSE, FAN ERROR IS THEN RESOLVED
 //THE FAN SPEED BEGINS TO DECREASE. 
