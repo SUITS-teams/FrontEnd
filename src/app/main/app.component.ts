@@ -149,6 +149,7 @@ console.log("In resolve function number = " + err);
           console.log("Resolving Fan error");
           this.resolveFanError();
           break;
+      }
       default:{
           console.log("Resolve Error");
           break;
